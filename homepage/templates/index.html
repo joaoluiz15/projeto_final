@@ -1,1 +1,17 @@
 {% extends "base_generic.html" %}
+
+{% block content %}
+
+{% if lista_carros %}
+
+    <ol>
+    {% for c in lista_carros %}
+        <li>{{c.nome}} - {{c.ano_fabricacao}} - {{c.categoria}}</li>
+    {%endfor%}
+    </ol>
+{% else %}
+    <p>Não há carros à venda no momento</p>
+
+{% endif %}
+
+{% endblock %}

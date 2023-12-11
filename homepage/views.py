@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from homepage import Cliente, Carro
+from homepage.models import Cliente, Carro
 
 # Create your views here.
 
