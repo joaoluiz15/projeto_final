@@ -11,6 +11,5 @@ class Carro(models.Model):
     nome = models.CharField(max_length=20)
     ano_fabricacao = models.IntegerField()
     categoria = models.CharField(max_length=10)
-    estoque = models.IntegerField(default=0)
     cpf_cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True, blank=True)
 
