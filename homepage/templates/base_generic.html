@@ -8,9 +8,14 @@
     {%block title%}<title>Concessionária</title>{%endblock%}
 </head>
 <body>
+    {% block sidebar %}
     <li><a href="{% url 'home' %}">Página inicial</a></li>
-    {%block content%}
+    <li><a href="{% url 'cadastro' %}">Cadastrar carros</a></li>
+    {% endblock %}
 
-    {%endblock%}
+
+    {% block content %}
+
+    {% endblock %}
 </body>
 </html>

@@ -15,3 +15,9 @@ def home(request):
     }
 
     return HttpResponse(template.render(context=context))
+
+def cadastro(request):
+    print('Cadastrar carros recém-chegados')
+    template = loader.get_template("cadastro.html")
+    
+    return HttpResponse(template.render())
