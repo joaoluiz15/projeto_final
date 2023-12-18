@@ -1,5 +1,15 @@
-ol{
+ul {
     list-style-type: none;
-    padding: 10;
-    margin:15;
+    margin: 0;
+    padding: 0;
 }
+
+li{
+    display: inline;
+}
+
+.carro{
+    margin:50px;
+    
+}
+

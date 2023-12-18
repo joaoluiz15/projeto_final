@@ -8,10 +8,12 @@ from homepage.models import Cliente, Carro
 def home(request):
     print('Página inicial')
     lista_carros = Carro.objects.all()
+    qnt_carros_disp = Carro.objects.all().count()
     template = loader.get_template("index.html")
 
     context = {
         'lista_carros': lista_carros,
+        'qnt_carros_disp': qnt_carros_disp,
     }
 
     return HttpResponse(template.render(context=context))
