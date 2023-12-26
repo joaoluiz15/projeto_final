@@ -12,4 +12,4 @@ class Carro(models.Model):
     ano_fabricacao = models.IntegerField()
     categoria = models.CharField(max_length=10)
     cpf_cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True, blank=True)
-
+    imagem = models.ImageField(upload_to='imagens/')
