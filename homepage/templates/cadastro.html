@@ -2,10 +2,19 @@
 
 {% block content %}
 
-<form method = "post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enviar</button>
-</form>
+<div class="form" style="margin-top: 50px; margin-left: 40px;">
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+
+{% if sucesso %}
+<br>
+<p>Cadastrado com sucesso.</p>
+
+{% endif %}
+
+</div>
 
 {% endblock %}

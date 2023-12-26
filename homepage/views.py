@@ -28,12 +28,13 @@ def cadastro(request):
 
         if form.is_valid():
             form.save()
-            return redirect('Ok')
+            sucesso = 'Cadastrado'
+            return render(request, 'cadastro.html', {'form': form, 'sucesso': sucesso})
         
     else:
         form = CarroForm()
         
     return render(request, 'cadastro.html', {'form': form})
 
-def Ok(request):
-    return HttpResponse('Cadastrado.')
+def sucesso(request):
+    return HttpResponse('Cadastrado. Clique aqui para retornar à página inicial.')

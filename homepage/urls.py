@@ -7,7 +7,7 @@ from .views import cadastro
 urlpatterns = [
     path('', views.home, name='home'),
     path('cadastro', views.cadastro, name='cadastro'),
-    path('ok', views.Ok, name='sucesso'),
+    path('ok', views.sucesso, name='sucesso'),
 ]
 
 if settings.DEBUG:
