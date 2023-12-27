@@ -3,31 +3,44 @@
 {% block content %}
     <ul class="list-group">
 
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="color:darkred">
         Carros disponíveis
-        <span class="badge bg-primary rounded-pill">{{qnt_carros_disp}}</span>
+        <span class="badge bg-dark rounded-pill">{{qnt_carros_disp}}</span>
         </li>
 
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="color:darkred">
         Carros vendidos
-        <span class="badge bg-primary rounded-pill">-</span>
+        <span class="badge bg-dark rounded-pill">-</span>
         </li>
 
     </ul>
 
 
 {% if lista_carros %}
-
-    <ol style="list-style-type: none;">
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for c in lista_carros %}
+    <div class="col">
+    <div class="card">
+      <img src="{{c.imagem}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title" style="color: gold;">{{c.nome}}</h5>
+        <p class="card-text" style="color:darkgoldenrod;">{{c.ano_fabricacao}} - {{c.categoria}}</p>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+    <!-- <ol style="list-style-type: none;">
     {% for c in lista_carros %}
         <div class="carro" style="display: flex; justify-content: center;">
             <li style="text-align:center;">{{c.nome}} - {{c.ano_fabricacao}} - {{c.categoria}}</li>
         </div>
     {%endfor%}
-    </ol>
+    </ol> -->
 {% else %}
     <p>Não há carros à venda no momento</p>
 
 {% endif %}
 
 {% endblock %}
+

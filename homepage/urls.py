@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('cadastro', views.cadastro, name='cadastro'),
     path('ok', views.sucesso, name='sucesso'),
+    path('carro_imagens', views.carro_imagens, name='carro_imagens'),
 ]
 
 if settings.DEBUG:

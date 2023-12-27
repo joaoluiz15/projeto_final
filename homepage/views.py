@@ -38,3 +38,8 @@ def cadastro(request):
 
 def sucesso(request):
     return HttpResponse('Cadastrado. Clique aqui para retornar à página inicial.')
+
+def carro_imagens(request):
+    if request.method == 'GET':
+        Carros = Carro.objects.all()
+        return render((request, 'carro_imagens.html', {'carro_imagens: Carros'}))
