@@ -9,8 +9,8 @@ urlpatterns = [
     path('cadastro', views.cadastro, name='cadastro'),
     path('ok', views.sucesso, name='sucesso'),
     path('carro_imagens', views.carro_imagens, name='carro_imagens'),
+    path('estoque', views.estoque, name='estoque'),
+    path('atualizar/<str:pk>/', views.atualizar, name="atualizar"),
+    path('comprar', views.comprar, name='comprar'),
+    path('cliente', views.cliente, name='cliente'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)

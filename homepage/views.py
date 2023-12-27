@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 from homepage.models import Cliente, Carro
 from .forms import CarroForm
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -43,3 +45,30 @@ def carro_imagens(request):
     if request.method == 'GET':
         Carros = Carro.objects.all()
         return render((request, 'carro_imagens.html', {'carro_imagens: Carros'}))
+
+
+def estoque(request):
+    return render(request, 'estoque.html')
+
+
+def atualizar(request, pk):
+	queryset = Carro.objects.get(id=pk)
+	form = CarroUpdate(instance=queryset)
+	if request.method == 'POST':
+		form = CarroUpdate(request.POST, instance=queryset)
+		if form.is_valid():
+			form.save()
+			return render(request, 'atualizar.html', context)
+
+	context = {
+		'form':form
+	}
+	return render(request, 'atualizar.html', context)
+
+
+
+def comprar(request):
+     return render(request, 'comprar.html')
+
+def cliente(request):
+     return render(request, 'cliente.html')

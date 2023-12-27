@@ -17,18 +17,24 @@
 
 
 {% if lista_carros %}
+
 <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for c in lista_carros %}
+    
     <div class="col">
-    <div class="card">
-      <img src="{{c.imagem}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title" style="color: gold;">{{c.nome}}</h5>
-        <p class="card-text" style="color:darkgoldenrod;">{{c.ano_fabricacao}} - {{c.categoria}}</p>
-      </div>
+        <div class="card">
+            {% if c.imagem %}
+            <img src="{{ c.imagem.url }}" class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title" style="color: gold;">{{c.nome}}</h5>
+                <p class="card-text" style="color:darkgoldenrod;">{{c.ano_fabricacao}} - {{c.categoria}}</p>
+            </div>
+        </div>
     </div>
-  </div>
+
   {%endfor%}
+
 </div>
     <!-- <ol style="list-style-type: none;">
     {% for c in lista_carros %}
@@ -38,6 +44,7 @@
     {%endfor%}
     </ol> -->
 {% else %}
+
     <p>Não há carros à venda no momento</p>
 
 {% endif %}

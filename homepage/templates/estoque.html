@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="div-pai" style="margin:2em;">
+
+    <div class="card" style="width: 18rem; display: inline-block; vertical-align: middle;">
+        <button class="button" role="button" onclick="location.href= '{% url 'cadastro' %}';">Cadastrar</button>
+        <div class="card-body">
+        <p class="card-text">Cadastro de carros recém-chegados.</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem; display: inline-block; vertical-align: middle;">
+        <button class="button" role="button" onclick="location.href= '{% url 'atualizar' %}';">Atualizar</button>
+        <div class="card-body">
+        <p class="card-text">Alterar dados de carros em estoque.</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem; display: inline-block; vertical-align: middle;">
+        <button class="button" role="button" onclick="location.href= '{% url 'comprar' %}';">Registro de compra</button>
+        <div class="card-body">
+        <p class="card-text">Cadastrar nova compra.</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem; display: inline-block; vertical-align: middle;">
+        <button class="button" role="button" onclick="location.href= '{% url 'cliente' %}';">Cadastrar cliente</button>
+        <div class="card-body">
+        <p class="card-text">Cadastro de novos clientes.</p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
