@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 from homepage.models import Cliente, Carro
-from .forms import CarroForm
+from .forms import CarroForm, CarroUpdate, ClienteForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -38,8 +38,10 @@ def cadastro(request):
         
     return render(request, 'cadastro.html', {'form': form})
 
+
 def sucesso(request):
     return HttpResponse('Cadastrado. Clique aqui para retornar à página inicial.')
+
 
 def carro_imagens(request):
     if request.method == 'GET':
@@ -66,9 +68,22 @@ def atualizar(request, pk):
 	return render(request, 'atualizar.html', context)
 
 
-
 def comprar(request):
      return render(request, 'comprar.html')
 
 def cliente(request):
-     return render(request, 'cliente.html')
+    print('Cadastrar novos clientes')
+    template = loader.get_template("cliente.html")
+    
+    if request.method == 'POST':
+        form = ClienteForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            sucesso = 'Cadastrado'
+            return render(request, 'cliente.html', {'form': form, 'sucesso': sucesso})
+        
+    else:
+        form = ClienteForm()
+        
+    return render(request, 'cliente.html', {'form': form})
